@@ -1,19 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-if [ $# -ne 1 ]; then
-  echo "Usage: $0 <version>"
-  exit 1
-fi
-
-VERSION="$1"
+DIR="$(cd "$(dirname "$0")" && pwd)"
+VERSION="$(jq -r '.version' "$DIR/package.json")"
 RELEASE_TAG="packages/ui@$VERSION"
-
-# Validate semver format (X.Y.Z)
-if ! echo "$VERSION" | grep -qxE '[0-9]+\.[0-9]+\.[0-9]+'; then
-  echo "Error: version must be in semver format X.Y.Z"
-  exit 1
-fi
 
 # Compare with latest release
 LATEST_TAG=$(gh release list --limit 1 --json tagName --jq '.[0].tagName' 2>/dev/null || true)
