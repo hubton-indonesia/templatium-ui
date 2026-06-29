@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { ColorRadio, ColorRadioItem } from "./components/color-radio";
+import { Counter } from "./components/counter";
 import { SizeRadio, SizeRadioItem } from "./components/size-radio";
 import { cn } from "./lib/utils";
 
 function App() {
 	const [selected, setSelected] = useState("value1");
+	const [count, setCount] = useState(1);
 
 	return (
 		<div className="container mx-auto p-6 flex flex-col gap-6">
@@ -45,6 +47,20 @@ function App() {
 						XL
 					</SizeRadioItem>
 				</SizeRadio>
+			</div>
+			<div className="space-y-2">
+				<p>Counter</p>
+				<div className="flex gap-2">
+					<Counter
+						onAdd={() => setCount(count + 1)}
+						onSubtract={() => setCount(Math.max(1, count - 1))}
+					>
+						{count}
+					</Counter>
+					<button type="button" className="block px-4 h-9 lg:h-14 border">
+						Submit
+					</button>
+				</div>
 			</div>
 		</div>
 	);
