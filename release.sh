@@ -3,7 +3,7 @@ set -euo pipefail
 
 DIR="$(cd "$(dirname "$0")" && pwd)"
 VERSION="$(jq -r '.version' "$DIR/package.json")"
-RELEASE_TAG="packages/ui@$VERSION"
+RELEASE_TAG="v$VERSION"
 
 # Compare with latest release
 LATEST_TAG=$(gh release list --limit 1 --json tagName --jq '.[0].tagName' 2>/dev/null || true)
