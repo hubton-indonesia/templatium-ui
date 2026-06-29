@@ -17,17 +17,17 @@ export function Counter({
 	return (
 		<div
 			className={cn(
-				"h-9 lg:h-14 col-span-12 grid grid-cols-3 gap-1 border font-medium md:col-span-4",
+				"h-9 lg:h-14 col-span-12 flex items-center gap-1 border font-medium md:col-span-4",
 				className,
 			)}
 		>
 			<button
-				className="cursor-pointer aspect-square flex h-full max-w-14 items-center justify-center transition-colors hover:scale-110 active:scale-95 lg:active:scale-80 active:opacity-90"
+				className="px-3 lg:px-5 cursor-pointer flex h-full max-w-14 items-center justify-center transition-colors hover:scale-110 active:scale-95 lg:active:scale-80 active:opacity-90"
 				onClick={onSubtract}
 				type="button"
 			>
 				<svg
-					className="h-4 w-4"
+					className="size-4"
 					xmlns="http://www.w3.org/2000/svg"
 					width="24"
 					height="24"
@@ -47,12 +47,12 @@ export function Counter({
 				{children}
 			</span>
 			<button
-				className="cursor-pointer aspect-square flex h-full max-w-14 items-center justify-center transition-colors hover:scale-110 active:scale-95 lg:active:scale-80 active:opacity-90"
+				className="px-3 lg:px-5 cursor-pointer flex h-full max-w-14 items-center justify-center transition-colors hover:scale-110 active:scale-95 lg:active:scale-80 active:opacity-90"
 				onClick={onAdd}
 				type="button"
 			>
 				<svg
-					className="h-4 w-4"
+					className="size-4"
 					xmlns="http://www.w3.org/2000/svg"
 					width="24"
 					height="24"

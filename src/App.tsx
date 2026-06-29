@@ -48,10 +48,11 @@ function App() {
 					</SizeRadioItem>
 				</SizeRadio>
 			</div>
-			<div className="space-y-2">
+			<div className="w-full space-y-2">
 				<p>Counter</p>
-				<div className="flex gap-2">
+				<div className="flex gap-2 w-full">
 					<Counter
+						className="grow"
 						onAdd={() => setCount(count + 1)}
 						onSubtract={() => setCount(Math.max(1, count - 1))}
 					>
