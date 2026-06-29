@@ -58,7 +58,7 @@ function App() {
 					>
 						{count}
 					</Counter>
-					<button type="button" className="block px-4 h-9 lg:h-14 border">
+					<button type="button" className="block px-4 h-11 lg:h-14 border">
 						Submit
 					</button>
 				</div>

@@ -25,7 +25,7 @@ function o({ children: e, value: t, onClick: r, className: a }) {
 //#region src/components/counter.tsx
 function s({ children: e, onAdd: t, onSubtract: a, className: o }) {
 	return /* @__PURE__ */ r("div", {
-		className: i("h-9 lg:h-14 col-span-12 flex items-center gap-1 border font-medium md:col-span-4", o),
+		className: i("h-11 lg:h-14 col-span-12 flex items-center gap-1 border font-medium md:col-span-4", o),
 		children: [
 			/* @__PURE__ */ n("button", {
 				className: "px-3 lg:px-5 cursor-pointer flex h-full max-w-14 items-center justify-center transition-colors hover:scale-110 active:scale-95 lg:active:scale-80 active:opacity-90",

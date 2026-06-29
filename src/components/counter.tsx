@@ -17,7 +17,7 @@ export function Counter({
 	return (
 		<div
 			className={cn(
-				"h-9 lg:h-14 col-span-12 flex items-center gap-1 border font-medium md:col-span-4",
+				"h-11 lg:h-14 col-span-12 flex items-center gap-1 border font-medium md:col-span-4",
 				className,
 			)}
 		>
