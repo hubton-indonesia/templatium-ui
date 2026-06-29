@@ -44,7 +44,7 @@ function l({ children: e, onAdd: t, onSubtract: a, className: o }) {
 		className: i("h-9 lg:h-14 col-span-12 grid grid-cols-3 gap-1 border font-medium md:col-span-4", o),
 		children: [
 			/* @__PURE__ */ n("button", {
-				className: "cursor-pointer aspect-square flex h-full items-center justify-center transition-colors hover:scale-110 active:scale-95 lg:active:scale-80 active:opacity-90",
+				className: "cursor-pointer aspect-square flex h-full max-w-14 items-center justify-center transition-colors hover:scale-110 active:scale-95 lg:active:scale-80 active:opacity-90",
 				onClick: a,
 				type: "button",
 				children: /* @__PURE__ */ r("svg", {
@@ -67,7 +67,7 @@ function l({ children: e, onAdd: t, onSubtract: a, className: o }) {
 				children: e
 			}),
 			/* @__PURE__ */ n("button", {
-				className: "cursor-pointer aspect-square flex h-full items-center justify-center transition-colors hover:scale-110 active:scale-95 lg:active:scale-80 active:opacity-90",
+				className: "cursor-pointer aspect-square flex h-full max-w-14 items-center justify-center transition-colors hover:scale-110 active:scale-95 lg:active:scale-80 active:opacity-90",
 				onClick: t,
 				type: "button",
 				children: /* @__PURE__ */ r("svg", {

@@ -36,8 +36,6 @@ if [ "$EXPORT_COUNT" -ne "$COMPONENT_COUNT" ]; then
   exit 1
 fi
 
-pnpm --filter @templatium/ui build
-
 git tag "$RELEASE_TAG"
 git push origin "$RELEASE_TAG"
 
