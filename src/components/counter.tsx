@@ -22,7 +22,7 @@ export function Counter({
 			)}
 		>
 			<button
-				className="cursor-pointer aspect-square flex h-full items-center justify-center transition-colors hover:scale-110 active:scale-95 lg:active:scale-80 active:opacity-90"
+				className="cursor-pointer aspect-square flex h-full max-w-14 items-center justify-center transition-colors hover:scale-110 active:scale-95 lg:active:scale-80 active:opacity-90"
 				onClick={onSubtract}
 				type="button"
 			>
@@ -47,7 +47,7 @@ export function Counter({
 				{children}
 			</span>
 			<button
-				className="cursor-pointer aspect-square flex h-full items-center justify-center transition-colors hover:scale-110 active:scale-95 lg:active:scale-80 active:opacity-90"
+				className="cursor-pointer aspect-square flex h-full max-w-14 items-center justify-center transition-colors hover:scale-110 active:scale-95 lg:active:scale-80 active:opacity-90"
 				onClick={onAdd}
 				type="button"
 			>
