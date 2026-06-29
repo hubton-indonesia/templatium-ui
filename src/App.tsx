@@ -1,12 +1,18 @@
 import { useState } from "react";
-import { ColorRadio, ColorRadioItem } from "./components/color-radio";
-import { Counter } from "./components/counter";
-import { SizeRadio, SizeRadioItem } from "./components/size-radio";
+import {
+	ColorRadio,
+	ColorRadioItem,
+	Counter,
+	Pagination,
+	SizeRadio,
+	SizeRadioItem,
+} from "./index";
 import { cn } from "./lib/utils";
 
 function App() {
 	const [selected, setSelected] = useState("value1");
 	const [count, setCount] = useState(1);
+	const [currentPage, setCurrentPage] = useState(1);
 
 	return (
 		<div className="container mx-auto p-6 flex flex-col gap-6">
@@ -14,15 +20,13 @@ function App() {
 				<p>Color</p>
 				<ColorRadio>
 					<ColorRadioItem
-						value="value1"
-						onClick={setSelected}
+						onClick={() => setSelected("value1")}
 						className={cn(selected === "value1" && "border-black")}
 					>
 						<div className="size-6 bg-red-400" />
 					</ColorRadioItem>
 					<ColorRadioItem
-						value="value2"
-						onClick={setSelected}
+						onClick={() => setSelected("value2")}
 						className={cn(selected === "value2" && "border-black")}
 					>
 						<div className="size-6 bg-blue-400" />
@@ -33,15 +37,13 @@ function App() {
 				<p>Size</p>
 				<SizeRadio>
 					<SizeRadioItem
-						value="value1"
-						onClick={setSelected}
+						onClick={() => setSelected("value1")}
 						className={cn(selected === "value1" && "border-black")}
 					>
 						S
 					</SizeRadioItem>
 					<SizeRadioItem
-						value="value2"
-						onClick={setSelected}
+						onClick={() => setSelected("value2")}
 						className={cn(selected === "value2" && "border-black")}
 					>
 						XL
@@ -62,6 +64,13 @@ function App() {
 						Submit
 					</button>
 				</div>
+			</div>
+			<div>
+				<Pagination
+					currentPage={currentPage}
+					totalPages={10}
+					onPageChange={setCurrentPage}
+				/>
 			</div>
 		</div>
 	);
