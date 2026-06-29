@@ -27,7 +27,7 @@ export function ColorRadioItem({
 		<button
 			type="button"
 			className={cn(
-				"cursor-pointer flex h-9 lg:h-14 w-9 lg:w-14 items-center justify-center border transition-colors",
+				"cursor-pointer flex w-max h-max p-1 items-center justify-center border transition-colors",
 				className,
 			)}
 			onClick={() => onClick(value)}
