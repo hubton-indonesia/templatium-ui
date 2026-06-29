@@ -13,11 +13,11 @@ function a({ children: e, className: t }) {
 		children: e
 	});
 }
-function o({ children: e, value: t, onClick: r, className: a }) {
+function o({ children: e, onClick: t, className: r }) {
 	return /* @__PURE__ */ n("button", {
 		type: "button",
-		className: i("cursor-pointer flex w-max h-max p-1 items-center justify-center border transition-colors", a),
-		onClick: () => r(t),
+		className: i("cursor-pointer flex w-max h-max p-1 items-center justify-center border transition-colors", r),
+		onClick: t,
 		children: e
 	});
 }
@@ -84,11 +84,11 @@ function c({ children: e, className: t }) {
 		children: e
 	});
 }
-function l({ children: e, value: t, onClick: r, className: a }) {
+function l({ children: e, onClick: t, className: r }) {
 	return /* @__PURE__ */ n("button", {
 		type: "button",
-		className: i("cursor-pointer flex h-9 lg:h-14 w-9 lg:w-14 items-center justify-center border font-medium text-sm transition-colors", a),
-		onClick: () => r(t),
+		className: i("cursor-pointer flex h-9 lg:h-14 w-9 lg:w-14 items-center justify-center border font-medium text-sm transition-colors", r),
+		onClick: t,
 		children: e
 	});
 }

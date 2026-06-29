@@ -3,8 +3,7 @@ import { cn } from "@/lib/utils";
 
 export interface ColorRadioItemProps {
 	children: ReactNode;
-	value: string;
-	onClick: (value: string) => void;
+	onClick: () => void;
 	className?: string;
 }
 
@@ -19,7 +18,6 @@ export function ColorRadio({ children, className }: ColorRadioProps) {
 
 export function ColorRadioItem({
 	children,
-	value,
 	onClick,
 	className,
 }: ColorRadioItemProps) {
@@ -30,7 +28,7 @@ export function ColorRadioItem({
 				"cursor-pointer flex w-max h-max p-1 items-center justify-center border transition-colors",
 				className,
 			)}
-			onClick={() => onClick(value)}
+			onClick={onClick}
 		>
 			{children}
 		</button>
