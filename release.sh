@@ -9,8 +9,8 @@ RELEASE_TAG="packages/ui@$VERSION"
 LATEST_TAG=$(gh release list --limit 1 --json tagName --jq '.[0].tagName' 2>/dev/null || true)
 if [ -n "$LATEST_TAG" ]; then
   LATEST_VER="${LATEST_TAG#packages/ui@}"
-  # Use sort -V for semver comparison
-  HIGHEST=$(printf '%s\n' "$LATEST_VER" "$VERSION" | sort -V | tail -n1)
+  LATEST_VER="${LATEST_VER#v}"
+  HIGHEST=$(printf '%s\n' "$LATEST_VER" "$VERSION" | sort -t. -k1,1n -k2,2n -k3,3n | tail -n1)
   if [ "$HIGHEST" != "$VERSION" ] || [ "$VERSION" = "$LATEST_VER" ]; then
     echo "Error: new version $VERSION must be > latest release version $LATEST_VER"
     exit 1
