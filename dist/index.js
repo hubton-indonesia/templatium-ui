@@ -7,9 +7,9 @@ function r(...n) {
 }
 //#endregion
 //#region src/components/size-radio.tsx
-function i({ children: e }) {
+function i({ children: e, className: t }) {
 	return /* @__PURE__ */ n("div", {
-		className: "flex gap-2 lg:gap-3",
+		className: r("flex gap-2 lg:gap-3", t),
 		children: e
 	});
 }
@@ -22,4 +22,20 @@ function a({ children: e, value: t, onClick: i, className: a }) {
 	});
 }
 //#endregion
-export { i as SizeRadio, a as SizeRadioItem };
+//#region src/components/color-radio.tsx
+function o({ children: e, className: t }) {
+	return /* @__PURE__ */ n("div", {
+		className: r("flex gap-2 lg:gap-3", t),
+		children: e
+	});
+}
+function s({ children: e, value: t, onClick: i, className: a }) {
+	return /* @__PURE__ */ n("button", {
+		type: "button",
+		className: r("cursor-pointer flex h-9 lg:h-14 w-9 lg:w-14 items-center justify-center border transition-colors", a),
+		onClick: () => i(t),
+		children: e
+	});
+}
+//#endregion
+export { o as ColorRadio, s as ColorRadioItem, i as SizeRadio, a as SizeRadioItem };

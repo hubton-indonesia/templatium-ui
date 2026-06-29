@@ -5,8 +5,10 @@ export interface SizeRadioItemProps {
     onClick: (value: string) => void;
     className?: string;
 }
-export declare function SizeRadio({ children }: {
+export interface SizeRadioProps {
     children: ReactNode;
-}): import("react").JSX.Element;
+    className?: string;
+}
+export declare function SizeRadio({ children, className }: SizeRadioProps): import("react").JSX.Element;
 export declare function SizeRadioItem({ children, value, onClick, className, }: SizeRadioItemProps): import("react").JSX.Element;
 //# sourceMappingURL=size-radio.d.ts.map
