@@ -19,6 +19,13 @@ if [ -n "$(git status --porcelain)" ]; then
   exit 1
 fi
 
+# Check index.ts exports match components count
+EXPORT_COUNT=$(grep -c 'export \* from "./components/' src/index.ts)
+COMPONENT_COUNT=$(ls -1 src/components/*.tsx 2>/dev/null | wc -l | tr -d ' ')
+if [ "$EXPORT_COUNT" -ne "$COMPONENT_COUNT" ]; then
+  echo "Warning: index.ts has $EXPORT_COUNT export(s) but src/components/ has $COMPONENT_COUNT file(s)"
+fi
+
 pnpm build
 
 git tag "v$VERSION"
