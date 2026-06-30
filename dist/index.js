@@ -198,4 +198,76 @@ function d({ children: e, onClick: t, className: r }) {
 	});
 }
 //#endregion
-export { a as ColorRadio, o as ColorRadioItem, s as Counter, c as Pagination, u as SizeRadio, d as SizeRadioItem };
+//#region src/components/product/product-card.tsx
+function f({ className: e, title: t, imageUrl: a, isSale: o, colors: s, formattedPrice: c, formattedStrikedPrice: l }) {
+	return /* @__PURE__ */ r("div", {
+		"data-slot": "product-card",
+		className: i("group relative flex flex-col gap-4", e),
+		children: [
+			/* @__PURE__ */ n(g, {
+				src: a,
+				alt: t
+			}),
+			/* @__PURE__ */ n(_, {
+				title: t,
+				formattedPrice: c,
+				formattedStrikedPrice: l,
+				isSale: o
+			}),
+			s && s.length > 0 && /* @__PURE__ */ n(h, { colors: s })
+		]
+	});
+}
+function p({ formattedPrice: e, formattedStrikedPrice: t }) {
+	return /* @__PURE__ */ r("div", {
+		className: "flex flex-col-reverse gap-2 text-base leading-normal md:flex-row md:items-baseline",
+		children: [/* @__PURE__ */ n("span", { children: e }), t && /* @__PURE__ */ n("span", {
+			className: "text-foreground/50 text-sm line-through",
+			children: t
+		})]
+	});
+}
+function m() {
+	return /* @__PURE__ */ n("div", {
+		className: "inline-flex h-5.5 w-11.25 items-center justify-center bg-sale-badge-background text-sale-badge-foreground px-2.5 py-1 font-normal text-[10px]",
+		children: "SALE"
+	});
+}
+function h({ colors: e }) {
+	return /* @__PURE__ */ n("div", {
+		className: "mt-1 flex gap-1.5",
+		children: e.map((e) => /* @__PURE__ */ n("div", {
+			className: "h-1.5 w-5 rounded-full",
+			style: { backgroundColor: e }
+		}, e))
+	});
+}
+function g({ src: e, alt: t }) {
+	return /* @__PURE__ */ n("div", {
+		className: "aspect-270/320 w-full overflow-hidden bg-foreground/5",
+		children: /* @__PURE__ */ n("img", {
+			alt: t,
+			className: "h-full w-full object-cover transition-transform duration-300 group-hover:scale-105",
+			height: 320,
+			src: e,
+			width: 270
+		})
+	});
+}
+function _({ title: e, formattedPrice: t, formattedStrikedPrice: i, isSale: a }) {
+	return /* @__PURE__ */ r("div", {
+		className: "flex flex-col-reverse justify-between gap-1.5 md:flex-row",
+		children: [/* @__PURE__ */ r("div", {
+			className: "flex flex-col gap-1.5",
+			children: [/* @__PURE__ */ n("h3", {
+				className: "line-clamp-2 font-semibold text-base leading-normal",
+				children: e
+			}), /* @__PURE__ */ n(p, {
+				formattedPrice: t,
+				formattedStrikedPrice: i
+			})]
+		}), a && /* @__PURE__ */ n(m, {})]
+	});
+}
+//#endregion
+export { a as ColorRadio, o as ColorRadioItem, s as Counter, c as Pagination, f as ProductCard, _ as ProductCardContent, g as ProductCardImage, p as ProductCardPrice, h as ProductColors, m as ProductSaleBadge, u as SizeRadio, d as SizeRadioItem };

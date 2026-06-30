@@ -6,6 +6,8 @@
 @theme inline {
 	--color-pagination-active-background: #000;
 	--color-pagination-active-foreground: #fff;
+    --color-sale-badge-background: #c33e3e; /* red */
+    --color-sale-badge-foreground: #fff;
 
 	--font-heading: var(--font-sans);
 	--font-sans: "Geist Variable", sans-serif;
