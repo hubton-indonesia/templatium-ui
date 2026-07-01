@@ -1,5 +1,5 @@
 {
-  "name": "@templatium/ui-astro",
+  "name": "@templatium/ui",
   "type": "module",
   "version": "0.0.1",
   "engines": {
