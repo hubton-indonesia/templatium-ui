@@ -1,3 +1,4 @@
+export * from "./src/components/added-to-cart-toast";
 export * from "./src/components/color-radio";
 export * from "./src/components/counter";
 export * from "./src/components/pagination";
