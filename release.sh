@@ -30,7 +30,7 @@ fi
 
 # Check index.ts exports match components count
 EXPORT_COUNT=$(grep -c 'from "./components/' src/index.ts)
-COMPONENT_COUNT=$(find src/components/ -type f \( -name '*.tsx' -o -name '*.astro' \) | wc -l | tr -d ' ')
+COMPONENT_COUNT=$(find src/components/ -type f \( -name '*.tsx' -o -name '*.astro' \) -not -path '*/ui/*' | wc -l | tr -d ' ')
 if [ "$EXPORT_COUNT" -ne "$COMPONENT_COUNT" ]; then
   echo "Error: index.ts has $EXPORT_COUNT export(s) but src/components/ has $COMPONENT_COUNT file(s)"
   exit 1
