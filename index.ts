@@ -6,3 +6,5 @@ export * from "./src/components/pagination";
 export * from "./src/components/product/product-card";
 export * from "./src/components/product/product-gallery";
 export * from "./src/components/size-radio";
+export * from "./src/components/variant-selector";
+export * from "./src/lib/variant-utils";
