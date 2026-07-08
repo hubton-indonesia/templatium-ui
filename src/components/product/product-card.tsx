@@ -16,19 +16,6 @@ export interface ProductCardContentProps extends BaseProps {
 	formattedStrikedPrice?: string;
 }
 
-/* Example:
-  <ProductCard>
-    <ProductCardImage src={imageUrl} alt={title} />
-		<ProductCardContent
-			title={title}
-			formattedPrice={formattedPrice}
-			formattedStrikedPrice={formattedStrikedPrice}
-			isSale={isSale}
-		/>
-		{colors && colors.length > 0 && <ProductColors colors={colors} />}
-	</ProductCard>
-*/
-
 export function ProductCard({
 	className,
 	children,
