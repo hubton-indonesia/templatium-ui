@@ -5,10 +5,15 @@ import { cn } from "../../lib/utils";
 
 interface ProductGalleryProps {
 	images: string[];
-	title?: string;
+  title?: string;
+  mainImageClass?: string;
 }
 
-export function ProductGallery({ images, title = "Product Gallery" }: ProductGalleryProps) {
+export function ProductGallery({
+  images,
+  title = "Product Gallery",
+  mainImageClass,
+}: ProductGalleryProps) {
 	const [activeIndex, setActiveIndex] = useState(0);
 	const [lightboxOpen, setLightboxOpen] = useState(false);
 
@@ -48,8 +53,10 @@ export function ProductGallery({ images, title = "Product Gallery" }: ProductGal
 	return (
 		<>
 			<div className="flex flex-col gap-6 lg:w-1/2">
-				<div
-					className="relative aspect-570/640 select-none overflow-hidden bg-brand-light-bg"
+        <div
+          // It's no use to use background color here other than for loading state
+          // since any image with same background color as the site would override it
+					className={cn("relative aspect-570/640 select-none overflow-hidden border hover:border-brand-dark/40 cursor-pointer", mainImageClass)}
 					onPointerDown={(e) => {
 						const el = e.currentTarget;
 						const startX = e.clientX;
@@ -91,11 +98,13 @@ export function ProductGallery({ images, title = "Product Gallery" }: ProductGal
 					{images.slice(0, 5).map((image, index) => (
 						<button
 							aria-label={`View image ${index + 1}`}
-							className={cn(
-								"aspect-square overflow-hidden border-2 bg-brand-light-bg transition-all",
+              className={cn(
+                // It's no use to use background color here other than for loading state
+                // since any image with same background color as the site would override it
+								"aspect-square overflow-hidden border transition-all cursor-pointer",
 								activeIndex === index
 									? "border-brand-dark"
-									: "border-transparent hover:border-brand-dark/40",
+									: "hover:border-brand-dark/40",
 							)}
 							key={image}
 							onClick={() => setActiveIndex(index)}

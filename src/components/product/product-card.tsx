@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { cn } from "../../lib/utils";
 
 interface BaseProps {
@@ -5,38 +6,39 @@ interface BaseProps {
 }
 
 export interface ProductCardProps extends BaseProps {
+  children: ReactNode
+}
+
+export interface ProductCardContentProps extends BaseProps {
 	title: string;
-	imageUrl: string;
 	isSale: boolean;
-	colors?: string[]; // array of unique hex string
 	formattedPrice: string;
 	formattedStrikedPrice?: string;
 }
 
+/* Example:
+  <ProductCard>
+    <ProductCardImage src={imageUrl} alt={title} />
+		<ProductCardContent
+			title={title}
+			formattedPrice={formattedPrice}
+			formattedStrikedPrice={formattedStrikedPrice}
+			isSale={isSale}
+		/>
+		{colors && colors.length > 0 && <ProductColors colors={colors} />}
+	</ProductCard>
+*/
+
 export function ProductCard({
 	className,
-	title,
-	imageUrl,
-	isSale,
-	colors,
-	formattedPrice,
-	formattedStrikedPrice,
+	children,
 }: ProductCardProps) {
 	return (
 		<div
 			data-slot="product-card"
 			className={cn("group relative flex flex-col gap-4", className)}
 		>
-			<ProductCardImage src={imageUrl} alt={title} />
-
-			<ProductCardContent
-				title={title}
-				formattedPrice={formattedPrice}
-				formattedStrikedPrice={formattedStrikedPrice}
-				isSale={isSale}
-			/>
-
-			{colors && colors.length > 0 && <ProductColors colors={colors} />}
+			{children}
 		</div>
 	);
 }
@@ -82,9 +84,17 @@ export function ProductColors({ colors }: { colors: string[] }) {
 	);
 }
 
-export function ProductCardImage({ src, alt }: { src: string; alt: string }) {
+export function ProductCardImage({
+  src,
+  alt,
+  className,
+}: {
+    src: string;
+    alt: string;
+    className?: string;
+}) {
 	return (
-		<div className="aspect-270/320 w-full overflow-hidden bg-foreground/5">
+		<div className={cn("aspect-270/320 w-full overflow-hidden border", className)}>
 			<img
 				alt={alt}
 				className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
@@ -101,12 +111,7 @@ export function ProductCardContent({
 	formattedPrice,
 	formattedStrikedPrice,
 	isSale,
-}: {
-	title: string;
-	isSale?: boolean;
-	formattedPrice: string;
-	formattedStrikedPrice?: string;
-}) {
+}: ProductCardContentProps) {
 	return (
 		<div className="flex flex-col-reverse justify-between gap-1.5 md:flex-row">
 			<div className="flex flex-col gap-1.5">
