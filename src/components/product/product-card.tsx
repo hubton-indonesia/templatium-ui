@@ -12,6 +12,7 @@ export interface ProductCardProps extends BaseProps {
 export interface ProductCardContentProps extends BaseProps {
 	title: string;
 	isSale: boolean;
+	isSoldOut?: boolean;
 	formattedPrice: string;
 	formattedStrikedPrice?: string;
 }
@@ -57,6 +58,14 @@ export function ProductSaleBadge() {
 	);
 }
 
+export function ProductSoldBadge() {
+	return (
+		<div className="inline-flex h-5.5 w-11.25 items-center justify-center bg-sold-badge-background text-sold-badge-foreground px-2.5 py-1 font-normal text-[10px]">
+			SOLD
+		</div>
+	);
+}
+
 export function ProductColors({ colors }: { colors: string[] }) {
 	return (
 		<div className="mt-1 flex gap-1.5">
@@ -98,6 +107,7 @@ export function ProductCardContent({
 	formattedPrice,
 	formattedStrikedPrice,
 	isSale,
+	isSoldOut,
 }: ProductCardContentProps) {
 	return (
 		<div className="flex flex-col-reverse justify-between gap-1.5 md:flex-row">
@@ -111,7 +121,7 @@ export function ProductCardContent({
 				/>
 			</div>
 
-			{isSale && <ProductSaleBadge />}
+			{isSoldOut ? <ProductSoldBadge /> : isSale ? <ProductSaleBadge /> : null}
 		</div>
 	);
 }
